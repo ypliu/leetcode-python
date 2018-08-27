@@ -9,7 +9,7 @@ class Solution(object):
         maxlen = 1
         indx = 0
 
-        for i in range(0, rmost):
+        for i in range(rmost):
             # centre exclude and include s[i] for j=0,1, that is, # of palindromic substring is even or odd
             for j in range(2):
                 l, r = i - j, i + 1
