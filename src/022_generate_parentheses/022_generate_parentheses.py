@@ -4,8 +4,10 @@ class Solution(object):
         :type n: int
         :rtype: List[str]
         """
+
         res = []
-        self.generate_dfs(n, n, "", res)
+        if n > 0:
+            self.generate_dfs(n, n, "", res)
         return res
 
     def generate_dfs(self, num_left, num_right, cur_comb, res):
@@ -17,6 +19,7 @@ class Solution(object):
         if num_left < num_right:
             self.generate_dfs(num_left, num_right-1, cur_comb+")", res)
 
-#
+# debug
+
 s = Solution()
 print s.generateParenthesis(3)
