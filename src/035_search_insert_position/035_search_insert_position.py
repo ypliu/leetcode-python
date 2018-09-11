@@ -6,6 +6,8 @@ class Solution(object):
         :rtype: int
         """
 
+        # return sorted(nums + [target]).index(target)
+        # return bisect.bisect_left(nums, target)
         left, right = 0, len(nums)-1
         if right < 0 or target <= nums[left]:
             return left
