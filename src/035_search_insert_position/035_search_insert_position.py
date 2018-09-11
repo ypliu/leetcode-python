@@ -7,7 +7,7 @@ class Solution(object):
         """
 
         left, right = 0, len(nums)-1
-        if target <= nums[left]:
+        if right < 0 or target <= nums[left]:
             return left
         elif target > nums[right]:
             return (right + 1)
