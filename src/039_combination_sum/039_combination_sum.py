@@ -7,10 +7,10 @@ class Solution(object):
         """
 
         if len(candidates) < 1:
-            return []
+            return [[]]
         candidates.sort()
         if target < candidates[0]:
-            return []
+            return [[]]
 
         res = []
         self.sumDfs(candidates, 0, target, [], res)
