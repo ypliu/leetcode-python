@@ -5,6 +5,7 @@ class Solution(object):
         :rtype: void Do not return anything, modify matrix in-place instead.
         """
 
+        # another method: swap every 2 lines from both up and down toward the middle, and then transpose
         dim_matrix = len(matrix)
         up_row, down_row = 0, dim_matrix-1
         while up_row < down_row:
