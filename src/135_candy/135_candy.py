@@ -9,7 +9,8 @@ class Solution(object):
             return 0
         elif 1 == len(ratings):
             return 1
-        return self.candyAssignLinearSpace(ratings)
+        # return self.candyAssignLinearSpace(ratings)
+        return self.candyAssignConstSpace(ratings)
 
     def candyAssignLinearSpace(self, ratings):
         candies = [1 for i in range(len(ratings))]
@@ -21,7 +22,29 @@ class Solution(object):
                 candies[i] = max(candies[i], candies[i+1] + 1)
         return sum(candies)
 
-    #def candyAssignConstSpace(self, ratings):
+    def candyAssignConstSpace(self, ratings):
+        candies = 0
+        ups = downs = 0
+        pre_slope = 0
+        for i in range(1, len(ratings)):
+            if ratings[i] > ratings[i-1]:
+                cur_slope = 1
+            elif ratings[i] < ratings[i-1]:
+                cur_slope = -1
+            else:
+                cur_slope = 0
+            if ((pre_slope > 0) and (0 == cur_slope)) or ((pre_slope < 0) and (cur_slope >= 0)):
+                candies += ((ups * ups + ups) / 2) + ((downs * downs + downs) / 2) + max(ups, downs)
+                ups = downs = 0
+            if cur_slope > 0:
+                ups += 1
+            elif cur_slope < 0:
+                downs += 1
+            else:
+                candies += 1
+            pre_slope = cur_slope
+        candies += ((ups * ups + ups) / 2) + ((downs * downs + downs) / 2) + max(ups, downs) + 1
+        return candies
 
 # debus
 s = Solution()
