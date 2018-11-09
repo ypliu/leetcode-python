@@ -6,7 +6,6 @@ class Solution(object):
         """
 
         # return (sum(set(nums))*3 - sum(nums)) // 2
-        
         if (not nums) or (len(nums)%3 != 1):
             return None
         residue = 0; carry = 0
