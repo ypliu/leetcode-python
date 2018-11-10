@@ -7,7 +7,7 @@ class Solution(object):
         """
 
         return self.wordBreakRecursionWithMemo(s, wordDict)
-        #TLE return self.wordBreakBfs(s, wordDict)
+        #TLE return self.wordBreakBfs(s, wordDict) # why slower?
 
     def wordBreakRecursionWithMemo(self, s, wordDict):
         def sentencesFromIToEnd(i):
@@ -28,7 +28,6 @@ class Solution(object):
         words_set = set(wordDict)
         initials_set = set(w[0] for w in wordDict)
         lengths_set = set(len(w) for w in wordDict)
-
         res = []
         queue = [ ([], 0) ]
         while queue:
